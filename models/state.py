@@ -4,7 +4,7 @@ from models.base_model import BaseModel, Base
 from os import environ
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-from models import storage
+import models
 from models.city import City
 
 engine = environ.get("HBNB_TYPE_STORAGE")
@@ -25,7 +25,7 @@ class State(BaseModel, Base):
         Returns list of city instances
         """
         city_list = []
-        for city in storage.all("City").values():
+        for city in models.storage.all(City).values():
             if city.state_id == self.id:
                 city_list.append(city)
         return city_list
