@@ -46,7 +46,8 @@ def display_n(n):
     """
     Display n is a number
     """
-    return "{} is a number".format(n)
+    if isinstance(n, int):
+        return "{} is a number".format(n)
 
 
 if __name__ == '__main__':
